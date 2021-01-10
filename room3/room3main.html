@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' href="room3.css">
+    <title>Room 3</title>
+</head>
+<body>
+<!--Navbar-->
+<nav class="navbar navbar-light">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#"></a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html" id="profile_button">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../profile.html" id="profile_button">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../logout.html" id="login_logout">Logout</a>
+            </li>
+        </ul>
+        <!-- Links -->
+    </div>
+    <!-- Collapsible content -->
+</nav>
+    
+    <!-- Start of main room div -->
+    <div class="container full-height">
+    <!-- Start of Timer, Inventory Div -->
+    <div class='container fluid'>
+        You are a brave one.. You are coming close to solving the gruesome murder mystery 
+
+        <!-- Countdown Timer -->
+        <button type="button" id="startTimer" class="btn btn-danger d-inline btn-fluid" onclick="startTimer(1330, display)">START</button>
+        <div id="countdownTimer" class="text-center"></div>
+
+        <!-- Calculator Button -->
+        <button type="button" class="btn btn-primary btn-fluid" data-toggle="modal" data-target="#calcInventoryModal">
+            Calculator
+        </button>
+    </div>
+
+
+    <!-- Start of buttons div -->
+    <div class='container fluid'>
+        <img class='room-img' style='border:1px solid black;' src="../assets/pictures/imgRoom3/bedroom2.png">
+
+        <!-- Hangman Button -->
+        <button type="button" class="btn btn-primary-outline hangman-btn" data-toggle="modal" data-target="#hangmanModal">
+            
+        </button>
+        
+        <!-- Computer Button -->
+        <button type="button" class="btn btn-primary-outline lg" id='computer-btn' data-toggle="modal" data-target="#computerModal">
+        </button>
+
+        <!-- Computer Modal -->
+        <div class="modal fade full-height" id="computerModal" tabindex="-1" role="dialog" aria-labelledby="computerModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="computerModal">Computer Applications</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="computerError">The computer does not seem to be working due to a circuit board issue..</div>
+                        <div id="computerContent" class ="d-none">
+                            <!-- Weather Button -->
+                            <button type="button" class="btn btn-primary-outline lg" id='weather-btn' data-toggle="modal" data-target="#weatherModal">
+                            </button>
+
+                            <!-- News Button -->
+                            <button type="button" class="btn btn-primary-outline lg" id='newsfeed-btn' data-toggle="modal" data-target="#newsModal">
+                            </button>
+                            
+                            <!-- Locked Folder Button -->
+                            <button type="button" class="btn btn-primary-outline btn-fluid" id='lockedfolder-btn' data-toggle="modal" data-target="#padlockModal">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of computer application modal -->
+
+
+        <!-- News Article Button-->
+        <button type="button" class="btn btn-primary-outline " id='newsarticle-btn' data-toggle="modal" data-target="#newsArticleModal">
+        </button>
+    
+
+        <!-- Circuit Board Button -->
+        <button type="button" class="btn btn-primary-outline btn-fluid" id='circuit-btn' data-toggle="modal" data-target="#circuitModal">
+        </button>
+
+        <!-- Final Button -->
+        <button type="button" class="btn btn-primary-outline murderer-btn" data-toggle="modal" data-target="#finalModal">
+        </button>
+
+
+
+        <!-- Progress Bar -->
+        <br>
+        Progress
+        <div class="progress">
+            <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+        </div>
+        <!-- Progress Bar -->
+    </div>
+    <!-- End of buttons div -->
+
+
+
+
+
+    
+
+    <!-- Weather Modal -->
+    <div class="modal fade" id="weatherModal" tabindex="-1" role="dialog" aria-labelledby="weatherModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="background-image: url('../assets/pictures/weather.jpg');background-size:cover;color:aqua">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="weatherModalLabel">Weather</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" aria-describedby="date" min="2018-01-01" onkeydown="return false">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="time" class="form-control" id="time" aria-describedby="time">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btnSubmit" onclick="displayLocations()">Submit</button>
+                    </form>
+                    <!--card display-->
+                    <br>
+                    <div class="card-columns" id="cards_div"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start of News Feed Modal -->
+
+    <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:coral;">
+                <h5 class="modal-title" id="newsModalLabel">Latest News Feed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" style="background-image:url('../assets/pictures/newspaper.jpg')">
+                    <div class="container">
+                        <div class="card-columns" id="newsFeed"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of News Feed Modal -->
+
+    
+
+    <!-- Locked Folder Modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="padlockModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="padlockTitle">Locked Folder (Hint: Lat*Long*Temp)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div id="folderCombination">
+                            <h3>Please Enter the 4-digit Password</h3>
+                            <div>
+                                <input type="text" id="num1" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                <input type="text" id="num2" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                <input type="text" id="num3" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                <input type="text" id="num4" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#padlockResultModal" onclick="check_lock_combination()">Unlock!</button>
+                        </div>
+                        <div id="folderCombinationAnswer" class="d-none">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Padlock Result Modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="padlockResultModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal_text"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newspaper Modal -->
+    <div class="modal fade" id="newsArticleModal" tabindex="-1" role="dialog" aria-labelledby="newsArticleModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newsArticleModal">Newspaper</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text">
+                    <img src="../assets/pictures/imgRoom3/newspaperMurder.jpg">
+                     <span id="newsArticleContent"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Circuit Board Modal -->
+    <div class="modal fade" id="circuitModal" tabindex="-1" role="dialog" aria-labelledby="circuitModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="circuitModal">Circuit Board. Can you follow the pattern?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" style="background-image: url('../assets/pictures/printed-circuit-boards.jpg');background-size:cover">
+                    <div class="btn-toolbar justify-content-center">
+                        <div class="btn-group">
+                            <div class="btn-group-vertical m-1">
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton0" onclick="getImgButton(0)" value="0"><img src="../assets/pictures/imgSequence/0diode.png"/></button>
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton1" onclick="getImgButton(1)" value="1"><img src="../assets/pictures/imgSequence/1capacitor.png"/></button>
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton2" onclick="getImgButton(2)" value="2"><img src="../assets/pictures/imgSequence/2inductor.png"/></button>
+                            </div>
+                            <div class="btn-group-vertical m-1">
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton3" onclick="getImgButton(3)" value="3"><img src="../assets/pictures/imgSequence/3resistor.png"/></button>
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton4" onclick="getImgButton(4)" value="4"><img src="../assets/pictures/imgSequence/4dcvoltage.png"/></button>
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton5" onclick="getImgButton(5)" value="5"><img src="../assets/pictures/imgSequence/5acvoltage.png"/></button>
+                            </div>
+                            <div class="btn-group-vertical m-1">
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton6" onclick="getImgButton(6)" value="6"><img src="../assets/pictures/imgSequence/6andgate.png"/></button>
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton7" onclick="getImgButton(7)" value="7"><img src="../assets/pictures/imgSequence/7orgate.png"/></button>
+                                <button type="button" class="btn image-button my-1 p-0" id="imgButton8" onclick="getImgButton(8)" value="8"><img src="../assets/pictures/imgSequence/8inverter.png"/></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container text-center justify-content-center">
+                        <button type="button" class="btn btn-primary text-center" style="width:min-content" onclick="startImgSequence()">
+                            Start
+                        </button>
+                        
+                        <div class="row justify-content-center" id="answerCircuit"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Hangman Modal -->
+    <div class="modal fade" id="hangmanModal" tabindex="-1" role="dialog" aria-labelledby="hangmanModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="background-image: url(../assets/pictures/clown.jpg);">
+                <div class="modal-header" style="background-color: black;color:lime;opacity:0.7">
+                <h5 class="modal-title" id="hangmanModal">Hangman</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" style="background-color: black;color:lime;opacity:0.7">
+                    <div id="hangmanContent">
+                        <div>The suspect's psychotic friend has appeared and challenges
+                            you, the <b>BEST DETECTIVE</b> to a "game". Guess the location of the murder
+                            letter by letter, and everytime you guess a wrong letter,
+                            he deals a blow to your assistant, until either you guess the place,
+                            or your comrade is so badly beaten up that he ends up in the hospital.
+                        </div>
+                        <div id="hangmanDisplay">xxx</div>
+                        <div id="progress">Guess the word (in lowercase only):</div>
+                        <div id="guessedLetters">Guessed letters</div>
+                        <div id="guessedWords">Guessed words</div>
+                        
+                        <input type=text id="guess" style="background-color: black;color:lime"/>
+                        <button type="submit" class="btn btn-primary mb-2" onclick="check_answer()">Submit</button>
+                    </div>
+                    <div id="message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Final Modal -->
+    <div class="modal fade" id="finalModal" tabindex="-1" role="dialog" aria-labelledby="finalModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="finalModal">Murderer (Article Author)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text">
+                    <input type=text id="guessMurderer"/>
+                    <!-- Guess Murderer Button -->
+                    <button type="button" class="btn btn-primary" onclick="guessMurderer()" data-toggle="modal" data-target="#guessAnsModal">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guess Murderer Modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="guessAnsModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="guessAnsModal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button></button>
+                </div>
+                <div class="modal-body">
+                    <p id="guessAnsModal-text"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="guessAnsModal-close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="guessAnsModal-finish" class="btn btn-primary d-none" onclick="finishGame()">Finish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Calculator Modal -->
+    <div class="modal fade" id="calcInventoryModal" tabindex="-1" role="dialog" aria-labelledby="calcInventoryModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calcInventoryModalTitle">Calculator</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-primary">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md">
+                                <!-- Calculator source:Web Dev Simplified -->
+                                <div class="calculator-grid">
+                                    <div class="output">
+                                        <div data-previous-operand class="previous-operand"></div>
+                                        <div data-current-operand class="current-operand"></div>
+                                    </div>
+                                    <button data-all-clear class="span-two">AC</button>
+                                    <button data-delete>DEL</button>
+                                    <button data-operation>÷</button>
+                                    <button data-number>1</button>
+                                    <button data-number>2</button>
+                                    <button data-number>3</button>
+                                    <button data-operation>*</button>
+                                    <button data-number>4</button>
+                                    <button data-number>5</button>
+                                    <button data-number>6</button>
+                                    <button data-operation>+</button>
+                                    <button data-number>7</button>
+                                    <button data-number>8</button>
+                                    <button data-number>9</button>
+                                    <button data-operation>-</button>
+                                    <button data-number>.</button>
+                                    <button data-number>0</button>
+                                    <button data-equals class="span-two">=</button>
+                                </div>
+                                <!-- Calculator source:Web Dev Simplified-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Javascript for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+    <!-- Javascript for Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Own script -->
+    <script src="room3.js"></script>
+    <script>
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+      if(dd<10){
+              dd='0'+dd
+          } 
+          if(mm<10){
+              mm='0'+mm
+          } 
+
+      today = yyyy+'-'+mm+'-'+dd;
+      document.getElementById("date").setAttribute("max", today);
+    </script>
+</body>
+</html>

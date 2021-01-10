@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' href="room1.css">
+    <title>Room 1</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-light">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#"></a>
+    
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" id="profile_button">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../profile.html" id="profile_button">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../logout.html" id="login_logout">Logout</a>
+                </li>
+            </ul>
+            <!-- Links -->
+        </div>
+        <!-- Collapsible content -->
+    </nav>
+
+
+    <!-- Start of main room div -->
+    <div class="container full-height">
+        <!-- Start of Timer, Inventory Div -->
+        <div class='container fluid'>
+            The Living Room... let's see if you are good at finding &#128269; and listening &#128066; <i>but be very careful what you click</i>
+            <!-- Countdown Timer -->
+            <button type="button" id="startTimer" class="btn btn-danger d-inline btn-fluid" onclick="startTimer(1330, display)">START</button>
+            <div id="countdownTimer" class="text-center"></div>
+            <!-- Countdown Timer -->
+
+            <!-- Start of Calculator and Inventory -->
+            <button type="button" class="btn btn-primary btn-fluid" data-toggle="modal" data-target="#calcInventoryModal">
+                Calculator & Inventory
+            </button>
+                
+            <div class="modal fade" id="calcInventoryModal" tabindex="-1" role="dialog" aria-labelledby="calcInventoryModalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="calcInventoryModalTitle"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-primary">
+                            <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <!-- Calculator source:Web Dev Simplified -->
+                                    <div class="calculator-grid">
+                                        <div class="output">
+                                        <div data-previous-operand class="previous-operand"></div>
+                                        <div data-current-operand class="current-operand"></div>
+                                        </div>
+                                        <button data-all-clear class="span-two">AC</button>
+                                        <button data-delete>DEL</button>
+                                        <button data-operation>÷</button>
+                                        <button data-number>1</button>
+                                        <button data-number>2</button>
+                                        <button data-number>3</button>
+                                        <button data-operation>*</button>
+                                        <button data-number>4</button>
+                                        <button data-number>5</button>
+                                        <button data-number>6</button>
+                                        <button data-operation>+</button>
+                                        <button data-number>7</button>
+                                        <button data-number>8</button>
+                                        <button data-number>9</button>
+                                        <button data-operation>-</button>
+                                        <button data-number>.</button>
+                                        <button data-number>0</button>
+                                        <button data-equals class="span-two">=</button>
+                                    </div>
+                                    <!-- Calculator source:Web Dev Simplified-->
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-6">
+                                    <!-- Inventory -->
+                                    <div style="width:400px">
+                                        <table class="table" id="inventory">
+
+                                        </table>
+                                    </div>
+                                    
+                                    <!-- Inventory -->
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                            
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Calculator and Inventory -->
+
+        </div>
+        <!-- End of Timer, Inventory Div -->
+
+        <!-- Start of buttons div -->
+        <div class='container fluid'>
+            <img class='room-img' src="../assets/pictures/imgRoom1/room1.svg">
+
+            <img class='door' src='../assets/pictures/imgRoom1/door.svg'>
+            <span class="top-right">The <br> Playroom</span>
+
+            <img src="../assets/pictures/imgRoom1/battery-svgrepo-com-2.svg" alt="batt-pic"  class='battery' id="obj6-battery"  onclick="removeItemFromScreen(this)"/> 
+
+                <!--padlock-->
+                <button type="button" id='padlock-btn' class="btn btn-primary-outline btn-fluid" data-toggle="modal" data-target="#padlockModal"></button>
+                <div class="modal" tabindex="-1" role="dialog" id="padlockModal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="padlockModal">Have you heard the dog? The cat? The owl?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container text-center">
+                                    <h3>Please Enter the 3-digit Padlock Combination</h3>
+                                    <div>
+                                        <input type="text" id="num1" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                        <input type="text" id="num2" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                        <input type="text" id="num3" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                    </div>
+                                    <br>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#padlockResultModal" onclick="check_lock_combination()">Unlock!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal" tabindex="-1" role="dialog" id="padlockResultModal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal_title"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="modal_text"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of padlock -->
+
+
+
+                <!--Start of Speaker and battery-->
+
+                <div >
+                    <button id='speaker-btn' class='btn btn-primary-outline btn-fluid' onclick="operateSpeaker()"></button>
+                </div>
+                <audio id="speaker" src="../assets/audio/creepyMusic.mp3" loop="true">
+                    Your browser does not support the <code>audio</code> element.
+                </audio>
+
+                <div class="modal fade" id="speakerModal" tabindex="-1" role="dialog" aria-labelledby="speakerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="background-image: url('../assets/pictures/radio1.jpg');">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="speakerModalLabel">Speaker</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="row border">
+                                        <button type="button" class="btn btn-dark" id="battery" onclick='insertBattery()' value="false">
+                                            Insert Battery
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--ENd of Speaker and battery-->
+
+                <!-- Start of images frames -->
+                <img src="../assets/pictures/imgRoom1/obj1-dog.png" alt="dog-pic" class='dog room-img dog-frame'  id="obj1-dog"  onclick="removeItemFromScreen(this)"/>
+                <img src="../assets/pictures/imgRoom1/obj2-cat.png" alt="cat-pic" class='cat room-img cat-frame' id="obj2-cat"  onclick="removeItemFromScreen(this)"/>
+                <img src="../assets/pictures/imgRoom1/obj3-owl.png" alt="owl-pic" class='owl room-img owl-frame'  id="obj3-owl"  onclick="removeItemFromScreen(this)"/>            
+                <img src="../assets/pictures/imgRoom1/obj5-frog.png" alt="frog-pic" class='frog room-img frog-frame' id="obj5-frog" onclick="nothing()"/>
+                <!-- End of images frames -->
+
+                <!--Scary doll effect-->
+                <img src='../assets/pictures/imgRoom1/obj7-doll.png' class='doll room-img' onclick='jumpScare()' data-toggle="modal" data-target="#jumpScareModal">
+
+                <div>
+                    <img src='../assets/pictures/imgRoom1/cushion.svg' class='cushion room-img' onclick='moveCushion()' id='cushion'>
+                </div>
+
+
+                <button id='nothing1' class='btn btn-primary-outline btn-fluid nothing1' onclick="nothing()"></button>
+                <button id='nothing2' class='btn btn-primary-outline btn-fluid nothing2' onclick="nothing()"></button>
+                <button id='nothing3' class='btn btn-primary-outline btn-fluid nothing3' onclick="nothing()"></button>
+
+            
+                
+        </div>
+        <!-- End of buttons div -->
+
+        <!-- Progress Bar -->
+        <br>
+        Room 1's Progress
+        <div class="progress">
+            <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+        </div>
+        <!-- Progress Bar -->
+        
+         <!-- Inventory Expand Modal -->
+    <div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="inventoryModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="inventoryModal-body" class="modal-body"></div>
+            <div id="inventoryModal-text"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <!-- Jump Scare -->
+    <audio id="jumpScare" src="../assets/audio/woman_scream.mp3"></audio>
+
+    <div class="modal fade" id="jumpScareModal" tabindex="-1" role="dialog" aria-labelledby="jumpScareModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <img src="../assets/pictures/imgRoom1/jumpScare.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+        
+    </div>
+    <!-- End of main room div -->
+
+    
+
+
+    
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="room1.js"></script>
+</body>
+</html>

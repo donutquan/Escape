@@ -1,0 +1,348 @@
+/* Calculator source:Web Dev Simplified*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+/* Calculator source:Web Dev Simplified*/
+
+/* Countdown Timer */
+#countdownTimer{
+    font-size: 5vw;
+}
+/* Countdown Timer */
+
+
+/* start of room 1 css */
+
+html, body {
+    height:100%;
+}
+
+.full-height {
+    height:100%;
+}
+
+
+
+
+.container {
+    position:relative;
+    width:100%;
+}
+  
+.room-img {
+    width:100%;
+    height:auto;
+}
+
+
+
+.door{
+
+    /* put the height and width of your image here */
+    height: 40%;
+    width: 40%;
+    border: none;
+    transform: skewY(5deg);
+    position:absolute;
+    top:25%;
+    left:48%;
+    float: none;
+    display: block;
+    
+}
+
+
+.battery{
+
+    /* put the height and width of your image here */
+    height: 5%;
+    width: 5%;
+    border: none;
+    position:absolute;
+    top:61%;
+    left:38%;
+    float: none;
+    display: block;
+    transform: skewX(180deg);
+}
+
+
+#speaker-btn{
+    background-image: url(../assets/pictures/imgRoom1/speaker-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-position: 80% 80%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 30%;
+    width: 15%;
+    border: none;
+    position:absolute;
+    top:57%;
+    left:83%;
+    float: none;
+    display: block;
+    
+}
+
+.sound{
+
+    /* put the height and width of your image here */
+    height: 5%;
+    width: 5%;
+    border: none;
+    position:absolute;
+    top:60%;
+    left:93%;
+    float: none;
+    display: block;
+    
+}
+
+.cat{
+
+    /* put the height and width of your image here */
+    height: 10%;
+    width: 10%;
+    border: none;
+    position:absolute;
+    top:33%;
+    left:90%;
+    float: none;
+    display: block;
+    transform: skewX(-3deg);
+    transform: skewY(-3deg);
+
+    
+}
+
+
+.cat-frame{
+    width: 6%;
+    height: auto;
+    border: 1% solid #ccc;
+    background: rgba(143, 110, 21, 0.788);
+    margin: auto;
+    padding: 0.3%;
+}
+
+
+.dog{
+
+    /* put the height and width of your image here */
+    height: 20%;
+    width: 20%;
+    border: none;
+    position:absolute;
+    top:30%;
+    left:21%;
+    float: none;
+    display: block;
+    
+}
+
+.dog-frame{
+    width: 6%;
+    height: auto;
+    border: 1% solid #ccc;
+    background: burlywood;
+    margin: auto;
+    padding: 0.3%;
+}
+
+
+
+.owl{
+
+    /* put the height and width of your image here */
+    height: 8%;
+    width: 7%;
+    border: none;
+    position:absolute;
+    top:33%;
+    left:7%;
+    float: none;
+    display: block;
+    transform: skewX(-3deg);
+    transform: skewY(-3deg);
+    
+}
+.owl-frame{
+    width: 5%;
+    height: auto;
+    border: 1% solid #ccc;
+    background: #eee;
+    margin: auto;
+    padding: 0.3%;
+}
+
+
+.frog{
+
+    /* put the height and width of your image here */
+    height: 5%;
+    width: 5%;
+    border: none;
+    position:absolute;
+    top:30%;
+    left:55%;
+    float: none;
+    display: block;
+    transform: skewX(-5deg);
+    transform: skewY(10deg);
+
+    
+}
+.frog-frame{
+    width: 6%;
+    height: auto;
+    border: 1% solid #ccc;
+    background: #eee;
+    margin: auto;
+    padding: 0.3%;
+}
+
+
+.doll{
+
+    /* put the height and width of your image here */
+    height: 13%;
+    width: 10%;
+    border: none;
+    position:absolute;
+    top:58%;
+    left:19%;
+    float: none;
+    display: block;
+    transform: scaleX(-1);
+    
+}
+
+
+.cushion{
+
+    /* put the height and width of your image here */
+    height: 15%;
+    width: 15%;
+    border: none;
+    position:absolute;
+    top:54%;
+    left:34%;
+    float: none;
+    display: block;
+    color: red;
+    transform: rotate(-40deg);
+    
+}
+
+
+
+#padlock-btn {
+    background-image: url(../assets/pictures/svg/padlock.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 25%;
+    width: 10%;
+    border: none;
+    position:absolute;
+    top:34%;
+    left:65%;
+    z-index: auto;
+
+  }
+
+
+
+/* Top left text */
+.top-right {
+    position: absolute;
+    top: 28%;
+    right: 28%;
+    font-family: cursive;
+    font-weight: bolder;
+    font-size: 1vw;
+    color:maroon;
+    text-align: center;
+  }
+
+
+
+
+.nothing1 {
+    height: 10%;
+    width: 30%;
+    border: none;
+    position:absolute;
+    top:76%;
+    left:24%;
+}
+
+
+.nothing2 {
+    height: 15%;
+    width: 15%;
+    border: none;
+    position:absolute;
+    top:34%;
+    left:31%;
+}
+
+
+.nothing3 {
+    height: 5%;
+    width: 5%;
+    border: none;
+    position:absolute;
+    top:50%;
+    left:7%;
+}

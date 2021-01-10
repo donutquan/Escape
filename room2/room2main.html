@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel='stylesheet' href="room2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    
+<body onload="selectSudoku()">
+    <!--Navbar-->
+    <nav class="navbar navbar-light">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#"></a>
+    
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" id="profile_button">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../profile.html" id="profile_button">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../logout.html" id="login_logout">Logout</a>
+                </li>
+            </ul>
+            <!-- Links -->
+        </div>
+        <!-- Collapsible content -->
+    </nav>
+
+    <!-- Start of main room div -->
+    <div class="container full-height" >
+        <!-- Start of Timer, Inventory Div -->
+        <div class='container fluid'>
+            Welcome to the playroom. Have you got the brains to solve all the puzzles here? &#129504;
+
+            <!-- Countdown Timer -->
+            <button type="button" id="startTimer" class="btn btn-danger d-inline btn-fluid" onclick="startTimer(1330, display)">START</button>
+            <div id="countdownTimer" class="text-center"></div>
+            <!-- Countdown Timer -->
+
+            <!-- Start of Calculator and Inventory -->
+            <button type="button" class="btn btn-primary btn-fluid" data-toggle="modal" data-target="#calcInventoryModal">
+                Calculator
+            </button>
+    
+            <div class="modal fade" id="calcInventoryModal" tabindex="-1" role="dialog" aria-labelledby="calcInventoryModalTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="calcInventoryModalTitle">Hint: you need to sum two numbers</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-primary">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <!-- Calculator source:Web Dev Simplified -->
+                                        <div class="calculator-grid">
+                                            <div class="output">
+                                                <div data-previous-operand class="previous-operand"></div>
+                                                <div data-current-operand class="current-operand"></div>
+                                            </div>
+                                            <button data-all-clear class="span-two">AC</button>
+                                            <button data-delete>DEL</button>
+                                            <button data-operation>÷</button>
+                                            <button data-number>1</button>
+                                            <button data-number>2</button>
+                                            <button data-number>3</button>
+                                            <button data-operation>*</button>
+                                            <button data-number>4</button>
+                                            <button data-number>5</button>
+                                            <button data-number>6</button>
+                                            <button data-operation>+</button>
+                                            <button data-number>7</button>
+                                            <button data-number>8</button>
+                                            <button data-number>9</button>
+                                            <button data-operation>-</button>
+                                            <button data-number>.</button>
+                                            <button data-number>0</button>
+                                            <button data-equals class="span-two">=</button>
+                                        </div>
+                                        <!-- Calculator source:Web Dev Simplified-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Calculator and Inventory -->
+
+        </div>
+        <!-- End of Timer, Inventory Div -->
+
+
+
+        <!-- Start of buttons div -->
+        <div class='container fluid' style='border:1px solid black;'>
+            <img class='room-img' src="../assets/pictures/imgRoom2/room2.svg">
+            <span class="top-right">WARNING: <br>DO NOT ENTER<span class='small'><br><i>It's not too late to stop here</i></span></span>
+            
+
+
+            <!-- Start of sudoku -->
+            <button type="button" id='sudoku-btn' class="btn btn-primary-outline btn-fluid" data-toggle="modal" data-target="#sudokuModal">
+            </button>
+        
+            <div class="modal fade" id="sudokuModal" tabindex="-1" role="dialog" aria-labelledby="sudokuModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="background-color:black">
+
+                <button type="button" class="close btn-danger" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div class="modal-body" style="background-color: black; color:lime" id="sudokuContent">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md" style="background-color:black;">
+                                <table class="table table-bordered" id="sudokuBoard"
+                                    style="border:2px solid silver;padding:0px;margin:0px;">
+                                </table>
+
+                                <button type="button" class="d-inline" onclick="checkAnswer()">Submit</button>
+                                <p id="sudokuResult"></p>
+                            </div>
+                            <div class="col-md" style="background-color:black;color:lime;">
+                                <p>
+                                    The suspect has protected himself with a number lock! The rules to crack the lock
+                                    are as follow:
+                                </p>
+                                <ul>
+                                    <li>Each ROW should only have <b>1</b> of each number</li>
+                                    <li>Each COLUMN should only have <b>1</b> of each number</li>
+                                    <li>Each SQUARE(demarcated by thicker lines) should only have <b>1</b> of each
+                                        number</li>
+                                </ul>
+                                <p>IF you are able to solve it, a hint to the next room will be given. Good luck!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+            <!-- End of sudoku -->
+
+            <!--Start of sliding puzzle with Modal-->
+            <button type="button" id='puzzle-btn' class="btn btn-primary-outline" data-toggle="modal" data-target="#puzzleModal">
+            </button>
+
+            <div class="modal fade" id="puzzleModal" tabindex="-1" role="dialog" aria-labelledby="puzzleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document" style="background-color: black;">
+                <div class="modal-content" style="background-color: black;color:red">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="puzzleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="puzzleContent">
+                        <!--Start of Sliding Image Puzzle-->
+                        <h1>Sliding Puzzle Game</h1>
+                        <p class="m-3">The suspect has now protected himself by <i>messing up your sense of direction,
+                                causing the real world
+                                to seem distorted to you.</i> Use your arrow keys to match the image below and regain your
+                            senses! Press <b>"s"</b> to start!</p>
+                        <h1 id="message"></h1>
+                        <h1 id="moves"></h1>
+                        <div>
+                            <canvas id="canvas" height="450px" width="450px"></canvas>
+                        </div>
+    
+                        <div>
+                            <button type="button" id='giveup' onclick='giveup()'>Give up</button>
+                        </div>
+    
+    
+                        <div>
+                            <h1>ORIGINAL IMAGE</h1>
+                            <div style="margin:auto">
+                                <img src="../assets/pictures/puzzle_images/puzz1.jpg" id="puzz1" width="150" height="150">
+                                <img src="../assets/pictures/puzzle_images/puzz2.jpg" id="puzz2" width="150" height="150">
+                                <img src="../assets/pictures/puzzle_images/puzz3.jpg" id="puzz3" width="150" height="150">
+                            </div>
+                            <div>
+                                <img src="../assets/pictures/puzzle_images/puzz4.jpg" id="puzz4" width="150" height="150">
+                                <img src="../assets/pictures/puzzle_images/puzz5.jpg" id="puzz5" width="150" height="150">
+                                <img src="../assets/pictures/puzzle_images/puzz6.jpg" id="puzz6" width="150" height="150">
+                            </div>
+                            <img src="../assets/pictures/puzzle_images/puzz7.jpg" id="puzz7" width="150" height="150">
+                            <img src="../assets/pictures/puzzle_images/puzz8.jpg" id="puzz8" width="150" height="150">
+                            <img src="../assets/pictures/puzzle_images/puzz9.jpg" id="puzz9" width="150" height="150">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+            <!-- End of sliding puzzle -->
+
+            <!--Bookshelf & Cipher-->
+            <button type="button" id='bookshelf-btn' class="btn btn-primary-outline" data-toggle="modal" data-target="#bookshelfModal">
+            </button>
+            <div class="modal fade" id="bookshelfModal" tabindex="-1" role="dialog" aria-labelledby="bookshelfModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="background-image:url('../assets/pictures/bookshelf.jpg')">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookshelfModalLabel" style="color: white">Take Note of Page Number</h5> 
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body" style="width:100%">
+                    <div class="container  mx-auto" id="bookshelfContainer" style="width:100%;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <button type="button" id='cipher-btn' class="btn btn-primary-outline" data-toggle="modal" data-target="#cipherModal">
+            </button>
+
+            <div class="modal fade" id="cipherModal" tabindex="-1" role="dialog" aria-labelledby="cipherModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content"
+                style="background-image:url('../assets/pictures/caesar.jpg');background-size: cover;">
+                <div class="modal-header" style="color:silver">
+                    <h5 class="modal-title" id="cipherModal">Cipher Machine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text" style="color:greenyellow">
+                    <div class="h4 text-center" id="cipherDisplay" style="color:black">
+
+                    </div>
+                    <div style="background-color: black;opacity: 0.7;">
+                        <p class="m-3" style="opacity: 1;">
+                            A Caesar cipher, is a type of substitution cipher in which each letter in the plaintext is
+                            replaced by a letter using a fixed number of positions down an alphabet format. <br>
+                            This machine takes in three values: </p>
+                        <ul>
+                            <li>Alphabet Format</li>
+                            <li>Cipher Text</li>
+                            <li>Cipher Key</li>
+                        </ul>
+                        <p class="m-3">Use this machine to decrypt any ciphered text which you find.</p>
+                    </div>
+                    <input type="text" class="form-control my-3" id="alphabet" placeholder="Alphabet"
+                        aria-label="alphabet" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" oninput="decryptText()">
+                    <input type="text" class="form-control my-3" id="cipherText" placeholder="Cipher Text"
+                        aria-label="alphabet" oninput="decryptText()">
+                    <input type="number" class="form-control my-3" id="cipherKey" placeholder="Cipher Key"
+                        aria-label="alphabet" max="6526" oninput="decryptText()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
+            <!-- <br><br> -->
+            <!-- <input type="number" id="pin">
+            <button type="button" class="btn btn-primary" onclick="checkPin()">
+                Check PIN
+            </button> -->
+            
+            <button type="button" class="btn btn-primary-outline" id='cipherhint-btn' data-toggle="modal" data-target="#cipherKeyModal">
+            </button>
+
+            <div class="modal fade" id="cipherKeyModal" tabindex="-1" role="dialog" aria-labelledby="cipherKeyModal"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cipherKeyModal">You will be needing this hint</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text" id="cipherKeyContent"></div>
+                            
+                    </div>
+                </div>
+            </div>
+
+            <div id="bookCollectionModals"></div>
+            <!--Bookshelf & Cipher-->
+
+            <img src='../assets/pictures/imgRoom2/potted-plant-svgrepo-com.svg' class='potted-plant room-img' onclick='movePlant()' id='plant'>
+
+
+
+            <!--padlock-->
+            <button type="button" id='padlock-btn' class="btn btn-primary-outline" data-toggle="modal" data-target="#myModal1"></button>
+            <!--Modal-->
+            <div class="modal" tabindex="-1" role="dialog" id="myModal1">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="padlockModal">Padlock</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container text-center">
+                                <h3>Please Enter the 4-digit Padlock Combination</h3>
+                                <div>
+                                    <input type="text" id="num1" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                    <input type="text" id="num2" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                    <input type="text" id="num3" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                    <input type="text" id="num4" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onkeydown="checkKey()"/>
+                                </div>
+                                <br>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#padlockResultModal" onclick="check_lock_combination()">Unlock!</button>
+                            </div>
+                        </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            
+            <div class="modal" tabindex="-1" role="dialog" id="padlockResultModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal_title"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="modal_text"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of padlock -->
+
+
+
+        </div>
+        <!-- End of buttons div -->
+
+       <!-- Progress Bar -->
+       Room 2's Progress
+       <div class="progress">
+           <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+       </div>
+       <!-- Progress Bar -->
+    </div>
+    <!-- End of main room div -->
+
+
+
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src='room2.js'></script>
+
+</body>
+
+</html>
+

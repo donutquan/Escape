@@ -1,0 +1,222 @@
+/* Calculator source:Web Dev Simplified*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+/* Calculator source:Web Dev Simplified*/
+
+/* Countdown Timer */
+#countdownTimer{
+    font-size: 5vw;
+}
+/* Countdown Timer */
+
+
+/* Start of room2 css */
+
+html, body {
+    height:100%;
+}
+
+.full-height {
+    height:100%;
+}
+
+
+
+
+.container {
+    position:relative;
+    width:100%;
+
+}
+  
+.room-img {
+    width:100%;
+    height:auto;
+    border-width: 2px;
+    border: black;
+}
+
+
+
+#sudoku-btn {
+    background-image: url(../assets/pictures/imgRoom2/sudoku001.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 15%;
+    width: 15%;
+    border: none;
+    transform: skewY(-23deg);
+    position:absolute;
+    top:23%;
+    left:12%;
+    float: none;
+    display: block;
+
+}
+
+  
+#puzzle-btn {
+    background-image: url(../assets/pictures/imgRoom2/puzzle.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 10%;
+    width: 10%;
+    border: none;
+    position:absolute;
+    top:60%;
+    left:55%;
+    
+}
+  
+
+
+#bookshelf-btn {
+    background-image: url(../assets/pictures/imgRoom2/bookshelf.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+    /* put the height and width of your image here */
+    height: 30%;
+    width: 20%;
+    border: none;
+    position:absolute;
+    top:25%;
+    left:55%;
+}
+
+
+#cipher-btn {
+    background-image: url(../assets/pictures/imgRoom2/caesar-cipher-template.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 15%;
+    width: 10%;
+    border: none;
+    position:absolute;
+    top:8%;
+    left:45%;
+}
+  
+
+
+  
+#padlock-btn {
+    background-image: url(../assets/pictures/imgRoom2/padlock.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 11%;
+    width: 10%;
+    border: none;
+    position:absolute;
+    top:25%;
+    left:80%;
+
+  }
+
+  
+
+
+  #cipherhint-btn {
+    background-image: url(../assets/pictures/imgRoom2/note-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 4%;
+    width: 4%;
+    border: none;
+    position:absolute;
+    top:53%;
+    left:86%;
+    float: none;
+    display: block;
+
+}
+
+
+
+.potted-plant{
+
+    /* put the height and width of your image here */
+    height: 25%;
+    width: 25%;
+    border: none;
+    position:absolute;
+    top:37%;
+    left:75%;
+    float: none;
+    display: block;
+    
+}
+
+
+
+  .top-right {
+    position: absolute;
+    top: 15%;
+    right: 15%;
+    font-family: cursive;
+    font-weight: bolder;
+    font-size: 1vw;
+    color:maroon;
+    text-align: center;
+  } 
+/* end of room css */

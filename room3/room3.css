@@ -1,0 +1,228 @@
+/* Calculator source:Web Dev Simplified*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+/* Calculator source:Web Dev Simplified*/
+
+/* Countdown Timer */
+#countdownTimer{
+    font-size: 5vw;
+}
+/* Countdown Timer */
+
+/* Start of room3 css */
+html, body {
+    height:100%;
+}
+
+.full-height {
+    height:100%;
+}
+
+
+
+
+.container {
+    position:relative;
+    width:100%;
+}
+  
+.room-img {
+    width:100%;
+    height:auto;
+}
+
+
+
+#computer-btn {
+
+    /* put the height and width of your image here */
+    height: 11%;
+    width: 7%;
+    border: none;
+    position:absolute;
+    top:48%;
+    left:46%;
+    float: none;
+    display: block;
+
+}
+
+
+#weather-btn {
+    background-image: url(../assets/pictures/imgRoom3/weather.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 100px;
+    width: 100px;
+
+ 
+}
+
+
+#newsfeed-btn {
+    background-image: url(../assets/pictures/imgRoom3/news-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 50%;
+    /* put the height and width of your image here */
+    height: 100px;
+    width: 100px;
+    border: none;
+ 
+
+}
+
+
+#lockedfolder-btn {
+    background-image: url(../assets/pictures/imgRoom3/locked-folder-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+    /* put the height and width of your image here */
+    height: 100px;
+    width: 100px;
+}
+
+
+
+#newsarticle-btn {
+
+    /* put the height and width of your image here */
+    height: 13%;
+    width: 5%;
+    border: none;
+    position:absolute;
+    top:46%;
+    left:12%;
+    float: none;
+    display: block;
+
+}
+
+
+#circuit-btn {
+    background-image: url(../assets/pictures/imgRoom3/circuitboard.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+    /* put the height and width of your image here */
+    height: 11%;
+    width: 7%;
+    border: none;
+    position:absolute;
+    top:68%;
+    left:40%;
+    float: none;
+    display: block;
+
+}
+
+
+.hangman-btn {
+    /* put the height and width of your image here */
+    height: 40%;
+    width: 3%;
+    border: none;
+    position:absolute;
+    top: 28%;
+    left: 30%;
+    float: none;
+    display: block;
+
+}
+
+
+.murderer-btn {
+    /* put the height and width of your image here */
+    height: 15%;
+    width: 15%;
+    border: none;
+    position:absolute;
+    top: 30%;
+    left: 55%;
+    float: none;
+    display: block;
+
+}
+
+/* end of room css */
+
+.image-button {
+    background-color: white;
+    border-color: lightgray;
+    cursor: pointer;
+    border-radius: 0%;
+}
+
+.answer-button {
+    background-color: white;
+    border-color: white;
+    cursor: pointer;
+    border-radius: 0%;
+    pointer-events: none;
+}
+
+.glow {
+    background-color: yellow;
+    border-color: orange;
+}
+
+.image-button:hover {
+    background-color: lightgray;
+}
+
+.image-button:focus {
+    background-color: yellow;
+}

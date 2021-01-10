@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+
+        <form>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" aria-describedby="username">
+                <!-- <small class="form-text text-danger font-weight-bold">
+                    <p id="usernameError" class="d-none">Please Enter Your Username</p>
+                </small> -->
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password">
+                <!-- <small class="form-text text-danger font-weight-bold">
+                    <p id="passwordError" class="d-none">Please Enter Your Password</p>
+                </small> -->
+            </div>
+
+            <div class="form-group">
+                <label for="passwordConfirm">Confirm Password</label>
+                <input type="password" class="form-control" id="passwordConfirm">
+                <!-- <small class="form-text text-danger font-weight-bold">
+                    <p id="passwordError" class="d-none">Please Enter Your Password</p>
+                </small> -->
+            </div>
+
+            <!-- <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="keepLoggedIn">
+                <label class="form-check-label" for="keepLoggedIn">Keep Me Logged In</label>
+            </div> -->
+
+            <div class="text text-danger font-weight-bold">
+                <!-- Error List -->
+                <p id="registerResult"></p>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="processRegister()">Register</button>
+          </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+        //If user is logged in, redirect to homepage
+        if (localStorage.getItem("username") != null) {
+            window.location.replace("index.html"); 
+        }
+        
+        function processRegister() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let passwordConfirm = document.getElementById("passwordConfirm").value;
+
+            if (password == passwordConfirm) {
+                const request = new XMLHttpRequest();
+                request.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        let registerData = JSON.parse(this.responseText);
+                        if (registerData.result == true) {
+                            window.location.replace("login.html"); 
+                        } else {
+                            document.getElementById("registerResult").innerHTML = registerData.output;
+                        }
+                    }
+                }
+                request.open('POST', 'backend/process_register.php', true);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request.send(`username=${username}&password=${password}&passwordConfirm=${passwordConfirm}`);
+            } else {
+                document.getElementById("registerResult").innerHTML = "Your passwords do not match!";
+            }
+        }
+    </script>
+</body>
+</html>
